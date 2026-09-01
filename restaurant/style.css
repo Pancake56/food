@@ -1,0 +1,600 @@
+/* ตั้งค่าเริ่มต้นและฟอนต์ (Google Fonts - Prompt) */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+    animation: fadeIn 0.6s ease-out; /* หน้าเว็บจะค่อยๆโผล่ขึ้น */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* โลโก้ตรงแถบเมนู */
+.logo {
+    font-size: 24px;
+    font-weight: 800; /* ตัวหนาพิเศษ */
+    color: #e67e22;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* ระยะห่างระหว่างไอคอนกับตัวอักษร */
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* ลูกเล่นเมื่อเอาเมาส์ชี้โลโก้ ให้ขยายขึ้นนิดนึง */
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* แต่งเฉพาะคำว่า "โปรด" ให้เป็นอีกสีหนึ่ง (ถ้าต้องการ) */
+.logo span {
+    color: #332c22;
+    background-color: #f3ede2;
+    padding: 2px 8px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #fdfbf7;
+    color: #332c22;
+    line-height: 1.6;
+}
+
+/* สไตล์ Navigation Bar (เมนูนำทาง) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e67e22;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #5d5345;
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* เอฟเฟกต์เส้นใต้เมนูเลื่อนตามเมาส์ชี้ */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #e67e22;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-links li a:hover {
+    color: #e67e22;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-links li a.active {
+    color: #e67e22;
+    font-weight: 600;
+}
+
+/* สไตล์ส่วนหัวของเว็บ (Headers & Hero Section) */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    font-weight: 300;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ป้ายหัวเรื่องในหน้าร้านอาหารเดี่ยวๆ (Restaurant Headers) */
+.restaurant-header {
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+}
+
+.restaurant-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* แยกพื้นหลังตามหน้าร้านค้า */
+.header-savory {
+    background-image: url('tenkai.jpeg');
+}
+.header-sweet {
+    background-image: url('soliscafe.webp');
+}
+.header-shabu {
+    background-image: url('chabumix.jpg');
+}
+
+.page-title-section {
+    background-color: #f3ede2;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.page-title-section h1 {
+    font-size: 28px;
+    color: #5d5345;
+    margin-bottom: 10px;
+}
+
+.tag {
+    background-color: #e67e22;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* กล่องเนื้อหาและโครงสร้างหลัก (Layout) */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #5d5345;
+}
+
+/* สไตล์การ์ดทั่วไป (Cards) */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* หน้าร้านอาหารเดี่ยว (Restaurant Detail Layout) */
+.restaurant-detail {
+    display: flex;
+    flex-wrap: wrap; /* เพื่อให้เปิดในมือถือแล้วจัดแนวอัตโนมัติ */
+    gap: 40px;
+}
+
+.detail-images {
+    flex: 1 1 450px;
+}
+
+.main-img {
+    width: 100%;
+    height: 320px;
+    margin-bottom: 20px;
+}
+
+.main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sub-images {
+    display: flex;
+    gap: 15px;
+}
+
+.sub-img {
+    flex: 1;
+    height: 120px;
+}
+
+.sub-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-info {
+    flex: 1 1 450px;
+}
+
+.detail-info h2 {
+    font-size: 24px;
+    color: #5d5345;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-size: 16px;
+    color: #6d6150;
+    margin-bottom: 25px;
+}
+
+.menu-highlight {
+    background-color: #f7f1e5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.menu-highlight h3 {
+    font-size: 18px;
+    color: #e67e22;
+    margin-bottom: 10px;
+}
+
+.menu-highlight ul {
+    list-style-position: inside;
+}
+
+.menu-highlight li {
+    margin-bottom: 8px;
+}
+
+.meta-info p {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+/* สไตล์หน้าแรกกริต (Home Page Featured Grid) */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.restaurant-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(230, 126, 34, 0.12);
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #5d5345;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #7d7160;
+    margin-bottom: 15px;
+}
+
+/* หน้าแกลเลอรีรูปภาพ (Gallery Grid Layout) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 250px;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay span {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* หน้าติดต่อผู้จัดทำและฟอร์ม (Contact Form) */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.creator-info {
+    flex: 1 1 350px;
+    padding: 30px;
+    text-align: center;
+}
+
+.creator-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 5px solid #f3ede2;
+}
+
+.creator-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.creator-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #5d5345;
+}
+
+.creator-school {
+    font-size: 14px;
+    color: #7d7160;
+    margin-bottom: 15px;
+}
+
+.creator-info hr {
+    border: none;
+    height: 1px;
+    background-color: #f3ede2;
+    margin: 15px 0;
+}
+
+.social-links p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.contact-form-wrapper {
+    flex: 2 1 500px;
+    padding: 30px;
+}
+
+.contact-form-wrapper h2 {
+    margin-bottom: 20px;
+    color: #5d5345;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd2be;
+    border-radius: 8px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 14px;
+    background-color: #fdfdfd;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e67e22;
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.2);
+}
+
+/* ปุ่มต่างๆ (Buttons) */
+.btn {
+    display: inline-block;
+    background-color: #e67e22;
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #d35400;
+    transform: scale(1.03);
+}
+
+.btn-sm {
+    display: inline-block;
+    background-color: #f3ede2;
+    color: #e67e22;
+    padding: 6px 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-sm:hover {
+    background-color: #e67e22;
+    color: white;
+}
+
+/* ส่วนท้ายเว็บ (Footer) */
+footer {
+    background-color: #4a4135;
+    color: #e4decb;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    font-size: 13px;
+}
+
+/* สำหรับหน้าจอมือถือ (Responsive Settings) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .hero-content h1 {
+        font-size: 28px;
+    }
+    .hero-content p {
+        font-size: 15px;
+    }
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #e67e22;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+
+.back-to-top:hover {
+    background-color: #d35400;
+    transform: translateY(-5px); /* ลอยขึ้นเมื่อเอาเมาส์ชี้ */
+}
+
+iframe {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 15px;
+}
